@@ -1,0 +1,356 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+.hero {
+    line-height: 1;
+    display: inline-block;
+    z-index: 2;
+    letter-spacing: 0;
+
+    /* Bright things in dark environments usually cast that light, giving off a glow */
+    filter: drop-shadow(0 1px 5px);
+}
+
+.demo {
+    height: 100px;
+    background: #fff;
+}
+
+.layers {
+    position: relative;
+}
+
+.layers::before,
+.layers::after {
+    content: attr(data-text);
+    position: absolute;
+    width: 110%;
+    z-index: -1;
+}
+
+.layers::before {
+    top: 10px;
+    left: 15px;
+    color: #e0287d;
+}
+
+.layers::after {
+    top: 5px;
+    left: -10px;
+    color: #1bc7fb;
+}
+
+.paths {
+    animation: paths 5s step-end infinite;
+}
+
+@keyframes paths {
+    0% {
+        clip-path: margin-box polygon(0% 15%, 45% 15%, 45% 16%, 49% 16%, 49% 46%, 1% 46%, 1% 27%, 23% 27%, 23% 58%, 81% 58%, 81% 57%, 47% 57%, 47% 78%, 21% 78%, 21% 56%, 48% 56%, 48% 47%, 31% 47%, 31% 1%, 10% 1%, 10% 41%, 86% 41%, 86% 1%, 99% 1%, 99% 23%, 22% 23%, 22% 85%, 49% 85%, 49% 83%, 13% 83%, 13% 32%, 54% 32%, 54% 75%, 8% 75%, 8% 18%, 52% 18%, 52% 86%, 23% 86%, 23% 68%, 14% 68%, 14% 45%, 25% 45%, 25% 75%, 26% 75%, 26% 79%, 82% 79%, 82% 54%, 81% 54%, 81% 94%, 85% 94%, 85% 24%, 53% 24%, 53% 86%, 52% 86%, 52% 8%, 4% 8%, 4% 20%)
+    }
+
+    5% {
+        clip-path: margin-box polygon(
+                0% 29%,
+                44% 29%,
+                44% 83%,
+                94% 83%,
+                94% 56%,
+                11% 56%,
+                11% 64%,
+                94% 64%,
+                94% 70%,
+                88% 70%,
+                88% 32%,
+                18% 32%,
+                18% 96%,
+                10% 96%,
+                10% 62%,
+                9% 62%,
+                9% 84%,
+                68% 84%,
+                68% 50%,
+                52% 50%,
+                52% 55%,
+                35% 55%,
+                35% 87%,
+                25% 87%,
+                25% 39%,
+                15% 39%,
+                15% 88%,
+                52% 88%
+        );
+    }
+
+    30% {
+        clip-path: margin-box polygon(
+                0% 53%,
+                93% 53%,
+                93% 62%,
+                68% 62%,
+                68% 37%,
+                97% 37%,
+                97% 89%,
+                13% 89%,
+                13% 45%,
+                51% 45%,
+                51% 88%,
+                17% 88%,
+                17% 54%,
+                81% 54%,
+                81% 75%,
+                79% 75%,
+                79% 76%,
+                38% 76%,
+                38% 28%,
+                61% 28%,
+                61% 12%,
+                55% 12%,
+                55% 62%,
+                68% 62%,
+                68% 51%,
+                0% 51%,
+                0% 92%,
+                63% 92%,
+                63% 4%,
+                65% 4%
+        );
+    }
+
+    45% {
+        clip-path: margin-box polygon(0% 77%, 61% 77%, 61% 76%, 96% 76%, 96% 25%, 81% 25%, 81% 25%, 21% 25%, 21% 71%, 37% 71%, 37% 91%, 39% 91%, 39% 89%, 34% 89%, 34% 75%, 87% 75%, 87% 90%, 38% 90%, 38% 12%, 25% 12%, 25% 28%, 72% 28%, 72% 65%, 23% 65%, 23% 18%, 12% 18%, 12% 55%, 65% 55%, 65% 32%, 17% 32%, 17% 88%, 77% 88%, 77% 35%, 41% 35%, 41% 81%, 64% 81%, 64% 12%, 98% 12%, 98% 88%, 61% 88%, 61% 33%, 30% 33%, 30% 81%, 23% 81%, 23% 90%, 11% 90%, 11% 16%, 43% 16%, 43% 25%, 74% 25%, 74% 85%);
+    }
+
+    76% {
+        clip-path: margin-box polygon(
+                0% 26%,
+                15% 26%,
+                15% 73%,
+                72% 73%,
+                72% 70%,
+                77% 70%,
+                77% 75%,
+                8% 75%,
+                8% 42%,
+                4% 42%,
+                4% 61%,
+                17% 61%,
+                17% 12%,
+                26% 12%,
+                26% 63%,
+                73% 63%,
+                73% 43%,
+                90% 43%,
+                90% 67%,
+                50% 67%,
+                50% 41%,
+                42% 41%,
+                42% 46%,
+                50% 46%,
+                50% 84%,
+                96% 84%,
+                96% 78%,
+                49% 78%,
+                49% 25%,
+                63% 25%,
+                63% 14%
+        );
+    }
+
+    90% {
+        clip-path: margin-box polygon(
+                0% 41%,
+                13% 41%,
+                13% 6%,
+                87% 6%,
+                87% 93%,
+                10% 93%,
+                10% 13%,
+                89% 13%,
+                89% 6%,
+                3% 6%,
+                3% 8%,
+                16% 8%,
+                16% 79%,
+                0% 79%,
+                0% 99%,
+                92% 99%,
+                92% 90%,
+                5% 90%,
+                5% 60%,
+                0% 60%,
+                0% 48%,
+                89% 48%,
+                89% 13%,
+                80% 13%,
+                80% 43%,
+                95% 43%,
+                95% 19%,
+                80% 19%,
+                80% 85%,
+                38% 85%,
+                38% 62%
+        );
+    }
+
+    1%,
+    7%,
+    33%,
+    47%,
+    78%,
+    93% {
+        clip-path: none;
+    }
+}
+
+@keyframes movement {
+    0% {
+        top: 0px;
+        left: -20px;
+    }
+
+    15% {
+        top: 10px;
+        left: 10px;
+    }
+
+    60% {
+        top: 5px;
+        left: -10px;
+    }
+
+    75% {
+        top: -5px;
+        left: 20px;
+    }
+
+    100% {
+        top: 10px;
+        left: 5px;
+    }
+}
+
+.opacity {
+    animation: opacity 5s step-end infinite;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0.1;
+    }
+
+    5% {
+        opacity: 0.7;
+    }
+
+    30% {
+        opacity: 0.4;
+    }
+
+    45% {
+        opacity: 0.6;
+    }
+
+    76% {
+        opacity: 0.4;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    1%,
+    7%,
+    33%,
+    47%,
+    78%,
+    93% {
+        opacity: 0;
+    }
+}
+
+.font {
+    animation: font 7s step-end infinite;
+}
+
+@keyframes font {
+    0% {
+        font-weight: 100;
+        color: #e0287d;
+        filter: blur(3px);
+    }
+
+    20% {
+        font-weight: 500;
+        color: #fff;
+        filter: blur(0);
+    }
+
+    50% {
+        font-weight: 300;
+        color: #1bc7fb;
+        filter: blur(2px);
+    }
+
+    60% {
+        font-weight: 700;
+        color: #fff;
+        filter: blur(0);
+    }
+
+    90% {
+        font-weight: 500;
+        color: #e0287d;
+        filter: blur(6px);
+    }
+}
+
+.glitch span {
+    animation: paths 5s step-end infinite;
+}
+
+.glitch::before {
+    animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+    font 7s step-end infinite, movement 11s step-end infinite;
+}
+
+.glitch::after {
+    animation: paths 5.5s step-end infinite, opacity 5.5s step-end infinite,
+    font 9s step-end infinite, movement 13s step-end infinite;
+}
+
+.hero-container {
+    position: relative;
+    text-align: center;
+}
+
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+    ) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
