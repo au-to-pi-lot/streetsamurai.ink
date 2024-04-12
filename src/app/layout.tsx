@@ -1,10 +1,7 @@
 import type {Metadata, Viewport} from "next";
 import "./globals.css";
 import React from "react";
-import ThreeScene from "@/src/components/three-scene";
-import Header from "@/src/components/header";
-import Projection from "@/src/components/projection";
-import Footer from "@/src/components/footer";
+import Content from "@/src/components/content";
 
 type Props = {} & React.PropsWithChildren;
 export const metadata: Metadata = {
@@ -22,13 +19,9 @@ const RootLayout = ({children}: Props) => {
     return (
         <html lang="en" className="overflow-hidden [backface-visibility:hidden]">
         <body className="w-screen h-screen [perspective:1000px]">
-        <Projection>
-            <Header></Header>
-            <div className={}>
-                {children}
-            </div>
-            <Footer></Footer>
-        </Projection>
+        <Content>
+            {children}
+        </Content>
         </body>
         </html>
     );

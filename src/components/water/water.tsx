@@ -1,10 +1,12 @@
+'use client'
+
 import React, {Ref, useMemo, useRef} from "react";
 import {useFrame, useThree} from "@react-three/fiber";
-import {Matrix4, Mesh, Vector2} from "three";
-import WaterMaterial from "@/src/components/water/material";
+import {Mesh, Vector2} from "three";
 
 import fragmentShader from "./frag-shader.glsl";
 import vertexShader from "./vertex-shader.glsl";
+import {OrbitControls} from "@react-three/drei";
 
 export type WaterProps = {}
 
@@ -20,13 +22,6 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
             viewport: {
                 value: new Vector2(1, 1)
             },
-            viewMatrixInverse: {
-                value: camera.matrixWorldInverse,
-            },
-            projectionMatrixInverse: {
-                value: camera.projectionMatrixInverse,
-            }
-
         }), []
     );
 
@@ -42,15 +37,13 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
 
         const rect = gl.domElement.getBoundingClientRect();
         uniforms.viewport.value = new Vector2(rect.width, rect.height);
-
-        uniforms.viewMatrixInverse.value.copy(camera.matrixWorldInverse);
-        uniforms.projectionMatrixInverse.value.copy(camera.projectionMatrixInverse);
     });
 
     return (
-        <mesh ref={mesh as Ref<Mesh>} position={[0, 0, 0]} rotation={[0, 0, 0]} scale={10}>
-            <planeGeometry args={[1, 1, 128, 128]}/>
-            <WaterMaterial
+        <mesh ref={mesh as Ref<Mesh>} position={[0, 0, 0]} rotation={[-Math.PI/4, 0, Math.PI/4]} scale={10}>
+            <planeGeometry args={[1, 1, 256, 256]}/>
+            <shaderMaterial
+                fragmentShader={fragmentShader}
                 vertexShader={vertexShader}
                 uniforms={uniforms}
             />

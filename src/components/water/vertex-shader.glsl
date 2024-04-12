@@ -4,7 +4,8 @@
 uniform float time;
 
 varying vec2 vUv;
-varying vec4 modelVertex;
+varying vec3 vNormal;
+varying vec3 vViewPosition;
 
 // Calculate the value and slope of a sine wave at x
 vec2 wave_at(vec2 position, vec2 direction, float frequency, float phase) {
@@ -52,11 +53,11 @@ float height(vec2 planePos, int iterations) {
 }
 
 vec4 transform_vertex(vec4 vertex) {
-    const float amplitude = 0.5;
+    const float amplitude = 1.0;
     const float frequency = 3.0;
     const int iterations = 20;
 
-    float h = height(vertex.xy, iterations);
+    float h = amplitude * height(vertex.xy, iterations);
     return vec4(
         vertex.x,
         vertex.y,
@@ -65,14 +66,30 @@ vec4 transform_vertex(vec4 vertex) {
     );
 }
 
+// Calculate normal at point by calculating the height at the vertex and 2 additional points very close to vertex
+vec3 normal_vec(vec4 vertex, float epsilon, float amplitude) {
+    vec4 position = transform_vertex(vertex);
+    vec4 xnudge = transform_vertex(vertex + vec4(epsilon, 0, 0, 0));
+    vec4 ynudge = transform_vertex(vertex + vec4(0, epsilon, 0, 0));
+
+    return normalize(
+        cross(
+            position.xyz - xnudge.xyz,
+            position.xyz - ynudge.xyz
+        )
+    );
+}
 
 void main() {
+    vViewPosition = (modelViewMatrix * vec4( position, 1.0 )).xyz;
+
     vUv = uv;
 
     vec4 localVertex = vec4(position, 1.0);
 
-    modelVertex = modelMatrix * localVertex;
+    vec4 modelVertex = modelMatrix * localVertex;
 
+    vNormal = normal_vec(modelVertex, 0.001, 1.0);
     modelVertex = transform_vertex(modelVertex);
 
     vec4 viewVertex = viewMatrix * modelVertex;

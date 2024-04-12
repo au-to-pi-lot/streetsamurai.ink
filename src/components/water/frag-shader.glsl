@@ -4,80 +4,13 @@
 
 uniform float time;
 uniform vec2 viewport;
-uniform vec4 viewMatrixInverse;
-uniform vec4 projectionMatrixInverse;
 
 varying vec2 vUv;
-varying vec4 modelVertex;
+varying vec3 vViewPosition;
+varying vec3 vNormal;
 
 vec3 colorA = vec3(0.912, 0.191, 0.652);
 vec3 colorB = vec3(1.000, 0.777, 0.052);
-
-
-// Calculate the value and slope of a sine wave at x
-vec2 wave_at(vec2 position, vec2 direction, float frequency, float phase) {
-    float rotation = dot(direction, position) * frequency + phase;
-    float value = exp(sin(rotation) - 1.0);
-    float slope = -value * cos(rotation);
-    return vec2(value, slope);
-}
-
-// Calculate the height of the compound wave at the given vertex
-float height(vec2 planePos, int iterations) {
-    float angle = 0.0; // radians
-    float frequency = 1.0;
-    float phaseCoefficient = 2.0;
-    float amplitude = 2.0;
-    float sumHeight = 0.0;
-    float sumAmplitude = 0.0;
-
-    for (int i = 0; i < iterations; i++) {
-        vec2 direction = vec2(sin(angle), cos(angle));
-        vec2 heightData = wave_at(planePos, direction, frequency, time * phaseCoefficient);
-        float sine_height = heightData.x;
-        float sine_slope = heightData.y;
-
-        // Waves in fluid have some "drag" to them
-        // simulate that with the derivative
-        planePos += direction * sine_slope * amplitude * DRAG_MULT;
-
-        sumHeight += sine_height * amplitude;
-        sumAmplitude += amplitude;
-
-        // Arbitrary constants, tune them until they look good
-        amplitude = mix(amplitude, 0.0, 0.2);
-        frequency *= 1.18;
-        phaseCoefficient *= 1.07;
-
-        // add some kind of random value to make next wave look random too
-        angle += 0.5;
-    }
-
-    // Normalize
-    float result = sumHeight / sumAmplitude;
-
-    return result;
-}
-
-// Calculate normal at point by calculating the height at the pos and 2 additional points very close to pos
-vec3 normal(float epsilon, float amplitude) {
-    vec2 epsilon_zero = vec2(epsilon, 0);
-    vec3 pos = modelVertex.xzy;
-    return normalize(
-        cross(
-            pos - vec3(pos.x - epsilon, height(pos.xy - epsilon_zero.xy, ITERATIONS_NORMAL) * amplitude, pos.z),
-            pos - vec3(pos.x, height(pos.xy + epsilon_zero.yx, ITERATIONS_NORMAL) * amplitude, pos.z + epsilon)
-        )
-    );
-}
-
-vec3 getRay() {
-    vec2 uv = gl_FragCoord.xy * 2.0 / viewport - 1.0;
-    vec4 viewPos = projectionMatrixInverse * vec4(uv, -1.0, 1.0);
-    viewPos /= viewPos.w;
-    vec4 modelPos = viewMatrixInverse * viewPos;
-    return normalize(modelPos.xyz);
-}
 
 // Some very barebones but fast atmosphere approximation
 vec3 atmosphere(vec3 raydir) {
@@ -118,33 +51,25 @@ vec3 aces_tonemap(vec3 color) {
   return pow(clamp(m2 * (a / b), 0.0, 1.0), vec3(1.0 / 2.2));
 }
 
+vec3 inverseTransformDirection( in vec3 dir, in mat4 matrix ) {
+    return normalize( ( vec4( dir, 0.0 ) * matrix ).xyz );
+}
 
 void main() {
-    vec3 n = normal(0.01, WATER_DEPTH);
+    vec3 normalDirection = normalize(vNormal);
+    vec3 viewDirection = normalize(vViewPosition);
 
-    vec3 ray = getRay();
     // https://lettier.github.io/3d-game-shaders-for-beginners/fresnel-factor.html
-    float fresnel = pow(1.0 - max(0.0, dot(n, ray)), 5.0);
-    fresnel = 0.04 + (1.0 - 0.04) * fresnel; // never exactly zero
+    float fresnel = pow(1.0 - max(0.0, dot(normalDirection, -viewDirection)), 5.0);
+    //fresnel = 0.04 + (1.0 - 0.04) * fresnel; // never exactly zero
 
-
-    vec3 reflection = normalize(reflect(ray, n));
-
-
+    vec3 reflection = inverseTransformDirection( reflect( viewDirection, normalDirection ), viewMatrix );
 
     // calculate the reflection and approximate subsurface scattering
     vec3 reflected_atmosphere = atmosphere(reflection);
-    vec3 scattering = vec3(0.0293, 0.0698, 0.1717) * 0.1 * (0.2 + (modelVertex.z + WATER_DEPTH) / WATER_DEPTH);
+    vec3 scattering = vec3(0.0293, 0.0698, 0.1717) * 0.1 * (0.2 + (vViewPosition.z + WATER_DEPTH) / WATER_DEPTH);
 
     // return the combined result
     vec3 C = fresnel * reflected_atmosphere + scattering;
     gl_FragColor = vec4(aces_tonemap(C * 2.0), 1.0);
-
-
-//    // "Normalizing" with an arbitrary value
-//    // We'll see a cleaner technique later :)
-//    vec2 normalizedPixel = vUv;
-//    vec3 color = mix(colorA, colorB, normalizedPixel.x);
-//
-//    gl_FragColor = vec4(color, 1.0);
 }
