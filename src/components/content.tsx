@@ -13,10 +13,9 @@ export type ContentProps = {} & React.PropsWithChildren
 const Content = ({children}: ContentProps): React.JSX.Element => (
         <div className="flex flex-col items-center w-full">
             <Header></Header>
-            <Canvas className="w-full h-full"><Water/></Canvas>
-            {/*<div className="w-80">*/}
-            {/*    {children}*/}
-            {/*</div>*/}
+            <div className="w-80">
+                {children}
+            </div>
             <Footer></Footer>
         </div>
 )
