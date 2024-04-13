@@ -2,11 +2,11 @@
 
 import React, {Ref, useMemo, useRef} from "react";
 import {useFrame, useThree} from "@react-three/fiber";
+import {OrbitControls} from "@react-three/drei";
 import {Mesh, Vector2} from "three";
 
 import fragmentShader from "./frag-shader.glsl";
 import vertexShader from "./vertex-shader.glsl";
-import {OrbitControls} from "@react-three/drei";
 
 export type WaterProps = {}
 
@@ -34,7 +34,8 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
     });
 
     return (
-        <mesh ref={mesh as Ref<Mesh>} position={[0, 0, 0]} rotation={[-Math.PI/4, 0, Math.PI/4]} scale={10}>
+        <mesh ref={mesh as Ref<Mesh>} position={[0, 0, 0]} rotation={[0, 0, 0]} scale={10}>
+            <OrbitControls></OrbitControls>
             <planeGeometry args={[1, 1, 256, 256]}/>
             <shaderMaterial
                 fragmentShader={fragmentShader}
