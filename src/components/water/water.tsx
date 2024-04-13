@@ -19,9 +19,6 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
             time: {
                 value: 0.0,
             },
-            viewport: {
-                value: new Vector2(1, 1)
-            },
         }), []
     );
 
@@ -34,9 +31,6 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
         }
 
         uniforms.time.value = state.clock.getElapsedTime()
-
-        const rect = gl.domElement.getBoundingClientRect();
-        uniforms.viewport.value = new Vector2(rect.width, rect.height);
     });
 
     return (
