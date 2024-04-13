@@ -3,7 +3,6 @@
 #define DRAG_MULT 0.38
 
 uniform float time;
-uniform vec2 viewport;
 
 varying vec2 vUv;
 varying vec3 vViewPosition;
