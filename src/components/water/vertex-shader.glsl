@@ -2,10 +2,12 @@
 #define WATER_DEPTH 1.0
 
 uniform float time;
+uniform mat4 inverseCameraRotationMatrix;
 
 varying vec2 vUv;
 varying vec3 vNormal;
-varying vec3 vViewPosition;
+varying vec3 vViewDirection;
+varying vec3 vModelPosition;
 
 // Calculate the value and slope of a sine wave at x
 vec2 wave_at(vec2 position, vec2 direction, float frequency, float phase) {
@@ -16,7 +18,7 @@ vec2 wave_at(vec2 position, vec2 direction, float frequency, float phase) {
 }
 
 // Calculate the height of the compound wave at the given vertex
-float height(vec2 planePos, int iterations) {
+float height(vec2 planePos, float amplitudeMultiplier, int iterations) {
     float angle = 0.0; // radians
     float frequency = 1.0;
     float phaseCoefficient = 2.0;
@@ -49,15 +51,14 @@ float height(vec2 planePos, int iterations) {
     // Normalize
     float result = sumHeight / sumAmplitude;
 
-    return result;
+    return result * amplitudeMultiplier;
 }
 
-vec4 transform_vertex(vec4 vertex) {
-    const float amplitude = 1.0;
+vec4 transform_vertex(vec4 vertex, float amplitude) {
     const float frequency = 3.0;
     const int iterations = 20;
 
-    float h = amplitude * height(vertex.xy, iterations);
+    float h = height(vertex.xy, amplitude, iterations);
     return vec4(
         vertex.x,
         vertex.y,
@@ -68,9 +69,9 @@ vec4 transform_vertex(vec4 vertex) {
 
 // Calculate normal at point by calculating the height at the vertex and 2 additional points very close to vertex
 vec3 normal_vec(vec4 vertex, float epsilon, float amplitude) {
-    vec4 position = transform_vertex(vertex);
-    vec4 xnudge = transform_vertex(vertex + vec4(epsilon, 0, 0, 0));
-    vec4 ynudge = transform_vertex(vertex + vec4(0, epsilon, 0, 0));
+    vec4 position = transform_vertex(vertex, amplitude);
+    vec4 xnudge = transform_vertex(vertex + vec4(epsilon, 0, 0, 0), amplitude);
+    vec4 ynudge = transform_vertex(vertex + vec4(0, epsilon, 0, 0), amplitude);
 
     return normalize(
         cross(
@@ -81,7 +82,6 @@ vec3 normal_vec(vec4 vertex, float epsilon, float amplitude) {
 }
 
 void main() {
-    vViewPosition = (modelViewMatrix * vec4( position, 1.0 )).xyz;
 
     vUv = uv;
 
@@ -89,10 +89,17 @@ void main() {
 
     vec4 modelVertex = modelMatrix * localVertex;
 
-    vNormal = normal_vec(modelVertex, 0.001, 1.0);
-    modelVertex = transform_vertex(modelVertex);
+    modelVertex = transform_vertex(modelVertex, WATER_DEPTH);
+    vModelPosition = modelVertex.xyz;
+    vNormal = normal_vec(modelVertex, 0.001, WATER_DEPTH);
 
     vec4 viewVertex = viewMatrix * modelVertex;
+
+    // Calculate the view direction in camera space
+    vec3 viewDirection = normalize(-viewVertex.xyz);
+
+    // Transform the view direction to world space using the inverse view matrix
+    vViewDirection = mat3(inverse(viewMatrix)) * viewDirection;
 
     vec4 projectionVertex = projectionMatrix * viewVertex;
 

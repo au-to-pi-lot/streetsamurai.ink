@@ -3,7 +3,7 @@
 import React, {Ref, useMemo, useRef} from "react";
 import {useFrame, useThree} from "@react-three/fiber";
 import {OrbitControls} from "@react-three/drei";
-import {Mesh, Vector2} from "three";
+import {Mesh, Vector2, Matrix4} from "three";
 
 import fragmentShader from "./frag-shader.glsl";
 import vertexShader from "./vertex-shader.glsl";
@@ -19,6 +19,9 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
             time: {
                 value: 0.0,
             },
+            inverseCameraRotationMatrix: {
+                value: new Matrix4()
+            }
         }), []
     );
 
@@ -31,6 +34,9 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
         }
 
         uniforms.time.value = state.clock.getElapsedTime()
+        uniforms.inverseCameraRotationMatrix.value = new Matrix4()
+            .makeRotationFromQuaternion(camera.quaternion)
+            .invert();
     });
 
     return (
