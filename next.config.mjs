@@ -6,6 +6,10 @@ const withMDX = MDX()
 const nextConfig = withMDX({
     // Configure `pageExtensions` to include MDX files
     pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+    experimental: {
+        // use new rust compiler for MDX
+        mdxRs: true
+    },
 
     webpack: (config, {buildId, dev, isServer, defaultLoaders, webpack}) => {
 
