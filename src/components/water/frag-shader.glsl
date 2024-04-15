@@ -15,9 +15,9 @@ vec3 atmosphere(vec3 raydir) {
     float scalingRatio = 1.0 / (PI * 0.5);
     float altitude = abs(asin(raydir.z) * scalingRatio);
     vec3 horizonColor = vec3(1.0, 0.0, 0.0) * smoothstep(0.0, altitude, 0.1);
-    vec3 skyColor = mix(vec3(1.0, 0.0, 0.0), vec3(0.0, 0.0, 0.1), smoothstep(0.1, altitude, 0.7));
-    vec3 sunColor = vec3(0.929, 0.824, 0.829) * smoothstep(0.7, altitude, 1.0);
-    return skyColor + horizonColor + sunColor;
+    vec3 skyColor = mix(vec3(1.0, 0.0, 0.0), vec3(0.0, 0.0, 0.1), smoothstep(0.1, altitude, 0.5));
+    vec3 sunColor = vec3(0.929, 0.824, 0.829) * smoothstep(0.5, altitude, 0.8);
+    return (skyColor + horizonColor + sunColor) * ATMOSPHERE_INTENSITY;
 }
 
 vec3 aces_tonemap(vec3 color) {
