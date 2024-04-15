@@ -1,6 +1,9 @@
 #define DRAG_MULT 0.38
 #define WATER_DEPTH 1.0
 
+#define ITERATIONS_VERTEX 20
+#define ITERATIONS_NORMAL 25
+
 uniform float time;
 
 varying vec2 vUv;
@@ -53,10 +56,7 @@ float height(vec2 planePos, float amplitudeMultiplier, int iterations) {
     return result * amplitudeMultiplier;
 }
 
-vec4 transform_vertex(vec4 vertex, float amplitude) {
-    const float frequency = 3.0;
-    const int iterations = 20;
-
+vec4 transform_vertex(vec4 vertex, float amplitude, int iterations) {
     float h = height(vertex.xy, amplitude, iterations);
     return vec4(
         vertex.x,
@@ -67,10 +67,10 @@ vec4 transform_vertex(vec4 vertex, float amplitude) {
 }
 
 // Calculate normal at point by calculating the height at the vertex and 2 additional points very close to vertex
-vec3 normal_vec(vec4 vertex, float epsilon, float amplitude) {
-    vec4 position = transform_vertex(vertex, amplitude);
-    vec4 xnudge = transform_vertex(vertex + vec4(epsilon, 0, 0, 0), amplitude);
-    vec4 ynudge = transform_vertex(vertex + vec4(0, epsilon, 0, 0), amplitude);
+vec3 normal_vec(vec4 vertex, float epsilon, float amplitude, int iterations) {
+    vec4 position = transform_vertex(vertex, amplitude, iterations);
+    vec4 xnudge = transform_vertex(vertex + vec4(epsilon, 0, 0, 0), amplitude, iterations);
+    vec4 ynudge = transform_vertex(vertex + vec4(0, epsilon, 0, 0), amplitude, iterations);
 
     return normalize(
         cross(
@@ -88,9 +88,9 @@ void main() {
 
     vec4 modelVertex = modelMatrix * localVertex;
 
-    modelVertex = transform_vertex(modelVertex, WATER_DEPTH);
+    modelVertex = transform_vertex(modelVertex, WATER_DEPTH, ITERATIONS_VERTEX);
     vModelPosition = modelVertex.xyz;
-    vNormal = normal_vec(modelVertex, 0.001, WATER_DEPTH);
+    vNormal = normal_vec(modelVertex, 0.001, WATER_DEPTH, ITERATIONS_NORMAL);
 
     vec4 viewVertex = viewMatrix * modelVertex;
 
