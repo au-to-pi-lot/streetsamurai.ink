@@ -43,9 +43,12 @@ void main() {
     vec3 viewDirection = vViewDirection;
 
     // https://lettier.github.io/3d-game-shaders-for-beginners/fresnel-factor.html
+    // Below implementation works but I don't know why.
+    // The exponent in the Schlick approximation is 5, but
+    // that didn't work - 1/5 did.
     float fresnel = dot(normalDirection, viewDirection);
     fresnel = max(fresnel, 0.0);
-    fresnel = pow(fresnel, 1.0/5.0);
+    fresnel = pow(fresnel, 1.0 / 5.0); // Why does 1/5 work here?
     fresnel = 1.0 - (0.04 + (1.0 - 0.04) * fresnel); // never exactly zero
 
     vec3 reflection = normalize(reflect(viewDirection, normalDirection));
