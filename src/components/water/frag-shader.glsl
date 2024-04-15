@@ -2,6 +2,7 @@
 
 #define WATER_DEPTH 1.0
 #define DRAG_MULT 0.38
+#define ATMOSPHERE_INTENSITY 0.3
 
 uniform float time;
 
@@ -46,7 +47,6 @@ void main() {
     fresnel = max(fresnel, 0.0);
     fresnel = pow(fresnel, 1.0/5.0);
     fresnel = 1.0 - (0.04 + (1.0 - 0.04) * fresnel); // never exactly zero
-    fresnel = fresnel * 0.45;
 
     vec3 reflection = normalize(reflect(viewDirection, normalDirection));
 
