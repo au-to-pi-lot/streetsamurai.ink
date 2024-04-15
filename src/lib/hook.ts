@@ -1,7 +1,9 @@
 import {useState} from "react"
+import {useDispatch, useSelector, useStore} from "react-redux";
+import {AppDispatch, AppStore, RootState} from "@/src/lib/store";
 
 
-const useLocalStorage = (key: string, initialValue: unknown) => {
+export const useLocalStorage = (key: string, initialValue: unknown) => {
     const [state, setState] = useState(() => {
         // Initialize the state
         try {
@@ -29,4 +31,7 @@ const useLocalStorage = (key: string, initialValue: unknown) => {
     return [state, setValue]
 }
 
-export {useLocalStorage};
+// Use throughout your app instead of plain `useDispatch` and `useSelector`
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppSelector = useSelector.withTypes<RootState>()
+export const useAppStore = useStore.withTypes<AppStore>()
