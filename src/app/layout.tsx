@@ -20,9 +20,9 @@ const RootLayout = ({children}: Props) => {
     return (
         <html lang="en" className="overflow-hidden [backface-visibility:hidden]">
         <body className="w-screen h-screen ">
-        {/*<Content>*/}
-        {/*    {children}*/}
-        {/*</Content>*/}
+        <Content>
+            {children}
+        </Content>
         <Background/>
         </body>
         </html>
