@@ -1,3 +1,5 @@
+#define PI 3.1415926535897932384626433832795
+
 #define WATER_DEPTH 1.0
 #define DRAG_MULT 0.38
 
@@ -10,7 +12,8 @@ varying vec3 vNormal;
 
 // Some very barebones but fast atmosphere approximation
 vec3 atmosphere(vec3 raydir) {
-    float altitude = abs(asin(raydir.z) / (3.14159265 * 0.5));
+    float scalingRatio = 1.0 / (PI * 0.5);
+    float altitude = abs(asin(raydir.z) * scalingRatio);
     vec3 horizonColor = vec3(1.0, 0.0, 0.0) * smoothstep(0.0, altitude, 0.1);
     vec3 skyColor = mix(vec3(1.0, 0.0, 0.0), vec3(0.0, 0.0, 0.1), smoothstep(0.1, altitude, 0.7));
     vec3 sunColor = vec3(0.929, 0.824, 0.829) * smoothstep(0.7, altitude, 1.0);
