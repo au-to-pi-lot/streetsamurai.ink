@@ -19,9 +19,6 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
             time: {
                 value: 0.0,
             },
-            inverseCameraRotationMatrix: {
-                value: new Matrix4()
-            }
         }), []
     );
 
@@ -33,10 +30,7 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
             return;
         }
 
-        uniforms.time.value = state.clock.getElapsedTime()
-        uniforms.inverseCameraRotationMatrix.value = new Matrix4()
-            .makeRotationFromQuaternion(camera.quaternion)
-            .invert();
+        uniforms.time.value = state.clock.getElapsedTime();
     });
 
     return (

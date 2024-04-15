@@ -2,7 +2,6 @@
 #define WATER_DEPTH 1.0
 
 uniform float time;
-uniform mat4 inverseCameraRotationMatrix;
 
 varying vec2 vUv;
 varying vec3 vNormal;
