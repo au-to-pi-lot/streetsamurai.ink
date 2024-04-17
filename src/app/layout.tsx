@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 
 const RootLayout = ({children}: Props) => {
     return (
-        <html lang="en" className="overflow-hidden [backface-visibility:hidden]">
+        <html lang="en" className="">
         <body className="w-screen h-screen ">
         <StoreProvider>
             <Content>
