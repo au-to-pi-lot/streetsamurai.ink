@@ -7,7 +7,7 @@ import Water from "@/src/components/water/water";
 export type BackgroundProps = {}
 
 const Background = ({...props}: BackgroundProps): React.JSX.Element => (
-    <div className="fixed inset-0 -z-10">
+    <div className="fixed inset-0 -z-10 motion-reduce:hidden">
         <Canvas>
             <Water/>
         </Canvas>
