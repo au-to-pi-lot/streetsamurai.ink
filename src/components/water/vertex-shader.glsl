@@ -1,3 +1,7 @@
+#define PI 3.141592653589793115997963468544185161590576171875
+const float PHI = (1.0 + sqrt(5.0)) / 2.0;
+const float GOLDEN_ANGLE = 2.0 * PI / (PHI + 1.0);
+
 #define DRAG_MULT 0.38
 #define WATER_DEPTH 1.0
 
@@ -46,8 +50,8 @@ float height(vec2 planePos, float amplitudeMultiplier, int iterations) {
         frequency *= 1.18;
         phaseCoefficient *= 1.07;
 
-        // add some kind of random value to make next wave look random too
-        angle += 1232.399963;
+        // The most irrational angle :)
+        angle += GOLDEN_ANGLE;
     }
 
     // Normalize
