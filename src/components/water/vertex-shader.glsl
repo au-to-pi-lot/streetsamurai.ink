@@ -47,7 +47,7 @@ float height(vec2 planePos, float amplitudeMultiplier, int iterations) {
 
         // Arbitrary constants, tune them until they look good
         amplitude = mix(amplitude, 0.0, 0.2);
-        frequency *= 1.18;
+        frequency *= 1.19;
         phaseCoefficient *= 1.07;
 
         // The most irrational angle :)
