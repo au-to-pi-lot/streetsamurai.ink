@@ -1,4 +1,4 @@
-#define PI 3.141592653589793115997963468544185161590576171875
+#define PI 3.1415926535897931
 const float PHI = (1.0 + sqrt(5.0)) / 2.0;
 const float GOLDEN_ANGLE = 2.0 * PI / (PHI + 1.0);
 
