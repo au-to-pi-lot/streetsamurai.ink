@@ -1,13 +1,11 @@
 import type {Metadata, Viewport} from "next";
-import "../globals.css";
+import "../globals.css"
 import React from "react";
-import Content from "@/src/components/content";
 import Background from "@/src/components/background";
 
 type Props = {} & React.PropsWithChildren;
 export const metadata: Metadata = {
-    title: "Street Samurai Aug Clinic",
-    description: "Upgrade your cyberware today!",
+    title: "look at the water",
 };
 
 export const viewport: Viewport = {
@@ -19,10 +17,7 @@ export const viewport: Viewport = {
 const RootLayout = ({children}: Props) => {
     return (
         <html lang="en" className="">
-        <body className="w-screen h-screen ">
-        <Content>
-            {children}
-        </Content>
+        <body className="w-screen h-screen">
         <Background/>
         </body>
         </html>
