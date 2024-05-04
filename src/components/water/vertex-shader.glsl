@@ -16,7 +16,7 @@ varying vec3 vViewDirection;
 varying vec3 vModelPosition;
 
 // Calculate the value and slope of a sine wave at x
-vec2 wave_at(vec2 position, vec2 direction, float frequency, float phase) {
+vec2 sine_at(vec2 position, vec2 direction, float frequency, float phase) {
     float rotation = dot(direction, position) * frequency + phase;
     float value = exp(sin(rotation) - 1.0);
     float slope = -value * cos(rotation);
@@ -34,7 +34,7 @@ float height(vec2 planePos, float amplitudeMultiplier, int iterations) {
 
     for (int i = 0; i < iterations; i++) {
         vec2 direction = vec2(sin(angle), cos(angle));
-        vec2 heightData = wave_at(planePos, direction, frequency, time * velocity);
+        vec2 heightData = sine_at(planePos, direction, frequency, time * velocity);
         float sine_height = heightData.x;
         float sine_slope = heightData.y;
 
@@ -70,7 +70,7 @@ vec4 transform_vertex(vec4 vertex, float amplitude, int iterations) {
     );
 }
 
-// Calculate normal at point by calculating the height at the vertex and 2 additional points very close to vertex
+// Calculate normal at point by finding the vector perpendicular to the tangent plane
 vec3 normal_vec(vec4 vertex, float epsilon, float amplitude, int iterations) {
     vec4 position = transform_vertex(vertex, amplitude, iterations);
     vec4 xnudge = transform_vertex(vertex + vec4(epsilon, 0, 0, 0), amplitude, iterations);
@@ -94,7 +94,7 @@ void main() {
 
     modelVertex = transform_vertex(modelVertex, WATER_DEPTH, ITERATIONS_VERTEX);
     vModelPosition = modelVertex.xyz;
-    vNormal = normal_vec(modelVertex, 0.001, WATER_DEPTH, ITERATIONS_NORMAL);
+    vNormal = normal_vec(modelVertex, 0.0001, WATER_DEPTH, ITERATIONS_NORMAL);
 
     vec4 viewVertex = viewMatrix * modelVertex;
 
