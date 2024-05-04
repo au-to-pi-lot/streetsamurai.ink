@@ -1,9 +1,8 @@
 'use client'
 
-import React, {Ref, useMemo, useRef} from "react";
-import {useFrame, useThree} from "@react-three/fiber";
-import {OrbitControls} from "@react-three/drei";
-import {Mesh, Vector2, Matrix4} from "three";
+import React, {Ref, useEffect, useMemo, useRef} from "react";
+import {useFrame} from "@react-three/fiber";
+import {Mesh} from "three";
 
 import fragmentShader from "./frag-shader.glsl";
 import vertexShader from "./vertex-shader.glsl";
@@ -11,7 +10,6 @@ import vertexShader from "./vertex-shader.glsl";
 export type WaterProps = {}
 
 const Water = ({...props}: WaterProps): React.JSX.Element => {
-    const {gl, camera} = useThree();
     const mesh = useRef<Mesh | null>();
 
     const uniforms = useMemo(
@@ -34,8 +32,7 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
     });
 
     return (
-        <mesh ref={mesh as Ref<Mesh>} position={[0, 0, 0]} rotation={[0, 0, 0]} scale={10}>
-            <OrbitControls></OrbitControls>
+        <mesh ref={mesh as Ref<Mesh>} position={[0, 0, 0]} rotation={[0, 0, Math.PI/4]} scale={20}>
             <planeGeometry args={[1, 1, 256, 256]}/>
             <shaderMaterial
                 fragmentShader={fragmentShader}
