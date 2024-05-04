@@ -7,6 +7,7 @@ const float GOLDEN_ANGLE = 2.0 * PI / (PHI + 1.0);
 
 #define ITERATIONS_VERTEX 20
 #define ITERATIONS_NORMAL 25
+#define NORMAL_EPSILON 0.1
 
 uniform float time;
 
@@ -94,7 +95,7 @@ void main() {
 
     modelVertex = transform_vertex(modelVertex, WATER_DEPTH, ITERATIONS_VERTEX);
     vModelPosition = modelVertex.xyz;
-    vNormal = normal_vec(modelVertex, 0.0001, WATER_DEPTH, ITERATIONS_NORMAL);
+    vNormal = normal_vec(modelVertex, NORMAL_EPSILON, WATER_DEPTH, ITERATIONS_NORMAL);
 
     vec4 viewVertex = viewMatrix * modelVertex;
 
