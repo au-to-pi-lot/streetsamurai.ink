@@ -2,6 +2,12 @@ const id = <T>(x: T): T => x;
 
 const range = (length: number): number[] => [...Array(length).keys()];
 
+const irange = function* irange(length: number): Generator<number, undefined, void> {
+    for (let n = 0; n < length; n++) {
+        yield n;
+    }
+}
+
 function objMap<A, B>(
     obj: Record<string, A>,
     keyfunc: (
