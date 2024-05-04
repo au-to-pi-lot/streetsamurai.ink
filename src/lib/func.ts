@@ -1,4 +1,4 @@
-const id = <T, >(x: T): T => x;
+const id = <T>(x: T): T => x;
 
 const range = (length: number): number[] => [...Array(length).keys()];
 
