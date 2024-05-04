@@ -27,14 +27,14 @@ vec2 wave_at(vec2 position, vec2 direction, float frequency, float phase) {
 float height(vec2 planePos, float amplitudeMultiplier, int iterations) {
     float angle = 0.0; // radians
     float frequency = 1.0;
-    float phaseCoefficient = 2.0;
+    float velocity = 2.0;
     float amplitude = 2.0;
     float sumHeight = 0.0;
     float sumAmplitude = 0.0;
 
     for (int i = 0; i < iterations; i++) {
         vec2 direction = vec2(sin(angle), cos(angle));
-        vec2 heightData = wave_at(planePos, direction, frequency, time * phaseCoefficient);
+        vec2 heightData = wave_at(planePos, direction, frequency, time * velocity);
         float sine_height = heightData.x;
         float sine_slope = heightData.y;
 
@@ -48,7 +48,7 @@ float height(vec2 planePos, float amplitudeMultiplier, int iterations) {
         // Arbitrary constants, tune them until they look good
         amplitude = mix(amplitude, 0.0, 0.2);
         frequency *= 1.19;
-        phaseCoefficient *= 1.07;
+        velocity *= 1.07;
 
         // The most irrational angle :)
         angle += GOLDEN_ANGLE;
