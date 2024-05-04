@@ -5,7 +5,7 @@ const float GOLDEN_ANGLE = 2.0 * PI / (PHI + 1.0);
 #define DRAG_MULT 0.38
 #define WATER_DEPTH 1.0
 
-#define ITERATIONS_VERTEX 20
+#define ITERATIONS_VERTEX 15
 #define ITERATIONS_NORMAL 25
 #define NORMAL_EPSILON 0.1
 
