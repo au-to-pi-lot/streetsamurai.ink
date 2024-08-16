@@ -10,10 +10,10 @@
 
 @keyframes scroll {
     0% {
-        background-position: 0 0;
+        transform: translateX(0);
     }
     100% {
-        background-position: 100% 0;
+        transform: translateX(-40px);
     }
 }
 
@@ -26,21 +26,19 @@
 
 .hazard-tape-inner {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
-    width: 200%;
-    height: 200%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: repeating-linear-gradient(
         45deg,
-        rgba(255, 255, 255, 0.8) 0,
-        rgba(255, 255, 255, 0.8) 20px,
-        transparent 20px,
-        transparent 40px
+        rgba(255, 255, 0, 0.8) 0,
+        rgba(255, 255, 0, 0.8) 20px,
+        rgba(0, 0, 0, 0.8) 20px,
+        rgba(0, 0, 0, 0.8) 40px
     );
     animation: scroll 1s linear infinite;
-    filter: blur(2px);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.7));
 }
 
 @media (prefers-color-scheme: dark) {
