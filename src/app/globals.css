@@ -39,7 +39,7 @@
         transparent 20px,
         transparent 40px
     );
-    animation: scroll 20s linear infinite;
+    animation: scroll 1s linear infinite;
     filter: blur(2px);
 }
 
