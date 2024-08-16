@@ -15,39 +15,6 @@ This project is a web application for a futuristic augmentation clinic. It featu
 - [Three.js](https://threejs.org/) (via @react-three/fiber and @react-three/drei) - 3D library for creating and displaying 3D computer graphics
 - [MDX](https://mdxjs.com/) - Markdown for the component era
 
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── (ui)/
-│   │   ├── content.mdx
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── water/
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   └── globals.css
-├── components/
-│   ├── water/
-│   │   ├── frag-shader.glsl
-│   │   ├── vertex-shader.glsl
-│   │   └── water.tsx
-│   ├── background.tsx
-│   ├── content.tsx
-│   ├── footer.tsx
-│   ├── header.tsx
-│   └── projection.tsx
-└── lib/
-    ├── fonts/
-    │   ├── kode-mono.ts
-    │   ├── kode-mono.ttf
-    │   ├── libre-barcode-128-text.ts
-    │   └── libre-barcode-128-text.ttf
-    ├── env.ts
-    └── hook.ts
-```
-
 ## Getting Started
 
 1. Clone the repository
@@ -64,14 +31,6 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Custom Components
-
-- `Header`: Contains the main title with a custom barcode font
-- `Footer`: Currently empty, can be expanded for additional content
-- `Background`: Renders the water animation using Three.js
-- `Water`: Implements the water shader and animation
-- `Projection`: Creates a 3D text effect
 
 ## Styling
 
