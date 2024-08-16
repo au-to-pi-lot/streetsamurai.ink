@@ -33,10 +33,10 @@
 
 .hazard-tape-inner {
     position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
+    top: calc(-20px * 2 * sin(45deg));
+    left: calc(-20px * 2 * sin(45deg));
+    right: calc(-20px * 2 * sin(45deg));
+    bottom: calc(-20px * 2 * sin(45deg));
     background-image: repeating-linear-gradient(
         45deg,
         rgba(255, 255, 255, 0.8) 0,
