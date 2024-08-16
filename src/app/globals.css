@@ -47,12 +47,20 @@
     filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
 }
 
-.hazard-tape-horizontal .hazard-tape-inner {
-    animation: scroll-horizontal 0.5s linear infinite;
+@media (prefers-reduced-motion: no-preference) {
+    .hazard-tape-horizontal .hazard-tape-inner {
+        animation: scroll-horizontal 0.5s linear infinite;
+    }
+
+    .hazard-tape-vertical .hazard-tape-inner {
+        animation: scroll-vertical 0.5s linear infinite;
+    }
 }
 
-.hazard-tape-vertical .hazard-tape-inner {
-    animation: scroll-vertical 0.5s linear infinite;
+@media (prefers-reduced-motion: reduce) {
+    .hazard-tape-inner {
+        animation: none;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
