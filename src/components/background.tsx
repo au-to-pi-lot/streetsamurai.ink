@@ -2,7 +2,7 @@
 
 import React from "react";
 import {Canvas} from "@react-three/fiber";
-import Water from "@/src/components/water/water";
+import Water from "@/components/water/water";
 import {PerspectiveCamera} from "@react-three/drei";
 
 export type BackgroundProps = {}

@@ -1,5 +1,5 @@
 import React from "react";
-import Content from "@/src/app/(ui)/content.mdx";
+import Content from "@/app/(ui)/content.mdx";
 
 export type PageProps = {}
 

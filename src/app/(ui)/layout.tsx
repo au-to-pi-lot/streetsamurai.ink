@@ -1,8 +1,8 @@
 import type {Metadata, Viewport} from "next";
 import "../globals.css";
 import React from "react";
-import Content from "@/src/components/content";
-import Background from "@/src/components/background";
+import Content from "@/components/content";
+import Background from "@/components/background";
 
 type Props = {} & React.PropsWithChildren;
 export const metadata: Metadata = {

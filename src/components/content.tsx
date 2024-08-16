@@ -1,12 +1,8 @@
 'use client'
 
 import React from "react";
-import Projection from "@/src/components/projection";
-import Header from "@/src/components/header";
-import {Canvas} from "@react-three/fiber";
-import Footer from "@/src/components/footer";
-import Water from "@/src/components/water/water";
-import { OrbitControls } from "@react-three/drei";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export type ContentProps = {} & React.PropsWithChildren
 
