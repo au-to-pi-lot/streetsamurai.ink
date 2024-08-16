@@ -8,28 +8,35 @@
     --background-end-rgb: 255, 255, 255;
 }
 
-@keyframes scroll {
+@keyframes scroll-horizontal {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-20px * 2 * sin(45deg)));
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes scroll-vertical {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
     }
 }
 
 .hazard-tape {
     position: relative;
     overflow: hidden;
-    height: 30px;
-    width: 100%;
 }
 
 .hazard-tape-inner {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: -40px; /* Extend beyond the container */
-    bottom: 0;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
     background-image: repeating-linear-gradient(
         45deg,
         rgba(255, 255, 255, 0.8) 0,
@@ -37,8 +44,15 @@
         transparent 10px,
         transparent 20px
     );
-    animation: scroll 0.5s linear infinite;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+
+.hazard-tape-horizontal .hazard-tape-inner {
+    animation: scroll-horizontal 0.5s linear infinite;
+}
+
+.hazard-tape-vertical .hazard-tape-inner {
+    animation: scroll-vertical 0.5s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {
