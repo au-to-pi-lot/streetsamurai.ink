@@ -13,7 +13,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-40px * 2 * sin(45deg)));
+        transform: translateX(calc(-20px * 2 * sin(45deg)));
     }
 }
 
@@ -33,11 +33,11 @@
     background-image: repeating-linear-gradient(
         45deg,
         rgba(255, 255, 255, 0.8) 0,
-        rgba(255, 255, 255, 0.8) 20px,
-        transparent 20px,
-        transparent 40px
+        rgba(255, 255, 255, 0.8) 10px,
+        transparent 10px,
+        transparent 20px
     );
-    animation: scroll 1s linear infinite;
+    animation: scroll 0.5s linear infinite;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
 }
 
