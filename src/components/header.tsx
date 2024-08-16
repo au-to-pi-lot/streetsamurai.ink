@@ -2,11 +2,12 @@ import React from "react";
 import Link from "next/link";
 import LibreBarcode128Text from "@/lib/fonts/libre-barcode-128-text";
 import HeaderButton from "./header-button";
+import HazardTape from "@/components/hazard-tape";
 
 export type HeaderProps = {} & React.PropsWithChildren
 
 const Header = (): React.JSX.Element => (
-    <header className="hero-container h-[8rem] w-full [transform-style:preserve-3d] flex items-center justify-center px-4">
+    <header className="hero-container h-[10rem] w-full [transform-style:preserve-3d] flex flex-col items-center justify-evenly px-4">
         <div className="w-full flex items-center justify-between">
             <h1 className={`${LibreBarcode128Text.variable} tracking-tighter whitespace-nowrap text-xl sm:text-3xl font-barcode font-extrabold hero glitch layers border-2 p-2`}
                 data-text="Street Samurai Aug Clinic">
@@ -19,6 +20,7 @@ const Header = (): React.JSX.Element => (
                 <HeaderButton href="/donate" label="Donate" />
             </nav>
         </div>
+        <HazardTape orientation="horizontal" className="w-full h-8 mt-4" />
     </header>
 )
 
