@@ -4,7 +4,7 @@ import LibreBarcode128Text from "@/lib/fonts/libre-barcode-128-text";
 
 export type HeaderProps = {} & React.PropsWithChildren
 
-const Header = ({...props}: HeaderProps): React.JSX.Element => (
+const Header = (): React.JSX.Element => (
 
     <header className="hero-container h-[8rem] w-full [transform-style:preserve-3d] flex items-center justify-center px-4">
         <div className="w-full flex items-center justify-between">
