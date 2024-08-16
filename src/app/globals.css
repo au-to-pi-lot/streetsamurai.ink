@@ -28,7 +28,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
+    right: -40px; /* Extend beyond the container */
     bottom: 0;
     background-image: repeating-linear-gradient(
         45deg,
