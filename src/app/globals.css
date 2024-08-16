@@ -32,13 +32,13 @@
     bottom: 0;
     background-image: repeating-linear-gradient(
         45deg,
-        rgba(255, 255, 0, 0.8) 0,
-        rgba(255, 255, 0, 0.8) 20px,
-        rgba(0, 0, 0, 0.8) 20px,
-        rgba(0, 0, 0, 0.8) 40px
+        rgba(255, 255, 255, 0.8) 0,
+        rgba(255, 255, 255, 0.8) 20px,
+        transparent 20px,
+        transparent 40px
     );
     animation: scroll 1s linear infinite;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.7));
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
 }
 
 @media (prefers-color-scheme: dark) {
