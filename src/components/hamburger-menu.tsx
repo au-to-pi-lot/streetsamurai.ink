@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import HeaderButton from './header-button';
 
-const HamburgerMenu: React.FC = () => {
+export type HamburgerMenuProps = {
+  children: React.ReactNode;
+};
+
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -32,9 +35,7 @@ const HamburgerMenu: React.FC = () => {
       </button>
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-black border border-gray-700 rounded-md shadow-lg py-1">
-          <HeaderButton href="/augs" label="Augs" />
-          <HeaderButton href="/about" label="About" />
-          <HeaderButton href="/donate" label="Donate" />
+          {children}
         </div>
       )}
     </div>
