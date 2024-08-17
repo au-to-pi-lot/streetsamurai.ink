@@ -19,7 +19,11 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ children }) => {
         className="text-white focus:outline-none relative w-6 h-6"
         aria-label="Toggle menu"
       >
-        <span className={`${styles.hamburgerIcon} ${isOpen ? styles.open : ''}`}></span>
+        <span className="absolute inset-0 flex flex-col justify-center items-center">
+          <span className={`bg-white h-0.5 w-5 absolute transition-all duration-300 ease-in-out ${isOpen ? 'rotate-45' : '-translate-y-1.5'}`}></span>
+          <span className={`bg-white h-0.5 w-5 absolute transition-all duration-300 ease-in-out ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+          <span className={`bg-white h-0.5 w-5 absolute transition-all duration-300 ease-in-out ${isOpen ? '-rotate-45' : 'translate-y-1.5'}`}></span>
+        </span>
       </button>
       {isOpen && (
         <div className={styles.menuItems}>
