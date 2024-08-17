@@ -374,12 +374,6 @@
     font 9s step-end infinite, movement 13s step-end infinite;
 }
 
-.hero-container {
-    position: relative;
-    text-align: center;
-}
-
-
 body {
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
