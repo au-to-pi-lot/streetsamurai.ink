@@ -3,7 +3,7 @@ import Link from "next/link";
 import LibreBarcode128Text from "@/lib/fonts/libre-barcode-128-text";
 import HeaderButton from "./header-button";
 import HazardTape from "@/components/hazard-tape";
-import HamburgerMenu from "./hamburger-menu";
+import Nav from "./nav";
 
 export type HeaderProps = {} & React.PropsWithChildren
 
@@ -15,13 +15,11 @@ const Header = (): React.JSX.Element => (
                 <Link href="/" aria-label="Home">Street Samurai Aug Clinic</Link>
             </h1>
 
-            <nav aria-label="Main Navigation" className="hidden lg:flex space-x-4">
+            <Nav>
                 <HeaderButton href="/augs" label="Augs" />
                 <HeaderButton href="/about" label="About" />
                 <HeaderButton href="/donate" label="Donate" />
-            </nav>
-
-            <HamburgerMenu />
+            </Nav>
         </div>
         <HazardTape orientation="horizontal" className="w-full h-8 mt-4" />
     </header>
