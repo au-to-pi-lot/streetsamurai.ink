@@ -18,11 +18,9 @@ const config: Config = {
       fontSize: {
         'header': ['2rem', {
           lineHeight: '1',
-          letterSpacing: '-0.01em',
         }],
-        'header-lg': ['2.4rem', {
+        'header-lg': ['3rem', {
           lineHeight: '1',
-          letterSpacing: '-0.01em',
         }],
       }
     },
