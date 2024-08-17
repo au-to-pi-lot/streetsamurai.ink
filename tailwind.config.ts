@@ -14,6 +14,12 @@ const config: Config = {
       fontFamily: {
         mono: ['var(--font-kode-mono)'],
         barcode: ['var(--font-libre-barcode-128-text)']
+      },
+      fontSize: {
+        'header': ['3rem', {
+          lineHeight: '1',
+          letterSpacing: '-0.01em',
+        }],
       }
     },
   },
