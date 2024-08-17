@@ -12,7 +12,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ children }) => {
   };
 
   return (
-    <div className="lg:hidden">
+    <div className="sm:hidden">
       <button
         onClick={toggleMenu}
         className="text-white focus:outline-none"
