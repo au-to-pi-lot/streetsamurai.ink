@@ -11,18 +11,18 @@ const Content = ({children}: ContentProps): React.JSX.Element => (
     <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow flex justify-center">
-            <div className="w-[80ch] my-4 px-4 sm:px-6 md:px-8 py-8 relative flex">
-                <HazardTape orientation="vertical" reverse={true} className="w-8 h-full absolute left-0 mr-8" />
+            <div className="w-[80ch] my-4 px-4 md:px-8 relative flex">
+                <HazardTape orientation="vertical" reverse={true} className="w-8 h-full absolute left-0 mr-8 flex-shrink-0" />
                 <div className="w-full relative">
                     <div className="absolute inset-2 bg-black bg-opacity-50 backdrop-blur-md z-0"></div>
                     <div className="absolute inset-0 border-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.5)] z-10">
                         <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(255,255,255,0.5)]"></div>
                     </div>
-                    <div className="relative p-2 filter drop-shadow-[0_1px_3px]">
+                    <div className="relative p-6 filter drop-shadow-[0_1px_3px]">
                         {children}
                     </div>
                 </div>
-                <HazardTape orientation="vertical" className="w-8 h-full absolute right-0 ml-8" />
+                <HazardTape orientation="vertical" className="w-8 h-full absolute right-0 ml-8 flex-shrink-0" />
             </div>
         </main>
         <Footer />
