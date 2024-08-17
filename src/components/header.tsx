@@ -10,7 +10,7 @@ export type HeaderProps = {} & React.PropsWithChildren
 const Header = (): React.JSX.Element => (
     <header className="hero-container h-[10rem] w-full [transform-style:preserve-3d] flex flex-col items-center justify-evenly px-4">
         <div className="w-full h-full flex items-center justify-between">
-            <h1 className={`${LibreBarcode128Text.variable} tracking-tighter whitespace-nowrap text-header font-barcode hero glitch layers border-2 p-2`}
+            <h1 className={`${LibreBarcode128Text.variable} tracking-tighter whitespace-nowrap text-header sm:text-header-lg font-barcode hero glitch layers border-2 p-2`}
                 data-text="Street Samurai Aug Clinic">
                 <Link href="/" aria-label="Home">Street Samurai Aug Clinic</Link>
             </h1>

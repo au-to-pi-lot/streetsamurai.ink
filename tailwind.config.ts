@@ -16,8 +16,13 @@ const config: Config = {
         barcode: ['var(--font-libre-barcode-128-text)']
       },
       fontSize: {
-        'header': ['2.4rem', {
-          lineHeight: '1'
+        'header': ['2rem', {
+          lineHeight: '1',
+          letterSpacing: '-0.01em',
+        }],
+        'header-lg': ['2.4rem', {
+          lineHeight: '1',
+          letterSpacing: '-0.01em',
         }],
       }
     },
