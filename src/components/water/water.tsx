@@ -6,6 +6,7 @@ import {Mesh} from "three";
 
 import fragmentShader from "./frag-shader.glsl";
 import vertexShader from "./vertex-shader.glsl";
+import {prefersReducedMotion} from "@/lib/accessibility";
 
 export type WaterProps = {}
 
@@ -20,6 +21,7 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
         }), []
     );
 
+
     useFrame((state) => {
         // @ts-ignore
         const uniforms = mesh.current?.material?.uniforms;
@@ -28,7 +30,9 @@ const Water = ({...props}: WaterProps): React.JSX.Element => {
             return;
         }
 
-        uniforms.time.value = state.clock.getElapsedTime();
+        if (!prefersReducedMotion()) {
+            uniforms.time.value = state.clock.getElapsedTime();
+        }
     });
 
     return (
