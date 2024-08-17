@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './HamburgerMenu.module.css';
 
 export type HamburgerMenuProps = {
   children: React.ReactNode;
