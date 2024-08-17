@@ -19,6 +19,7 @@ const Header = (): React.JSX.Element => (
                 <HeaderButton href="/augs" label="Augs" />
                 <HeaderButton href="/about" label="About" />
                 <HeaderButton href="/donate" label="Donate" />
+                <HeaderButton href="/water" label="Water" />
             </Nav>
         </div>
         <HazardTape orientation="horizontal" className="w-full h-8 mt-4" />
