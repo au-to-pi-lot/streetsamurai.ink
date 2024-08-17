@@ -421,7 +421,7 @@ body {
 .button-hover-effect {
     position: relative;
     overflow: hidden;
-    transition: color var(--transition-duration) ease;
+    transition: color var(--transition-duration) linear;
 }
 
 .button-hover-effect::before {
