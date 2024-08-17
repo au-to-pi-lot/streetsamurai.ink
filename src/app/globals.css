@@ -442,17 +442,13 @@ body {
     left: 0;
 }
 
-.button-hover-effect:hover,
-.button-hover-effect:focus {
-    color: white;
-}
-
-.button-hover-effect:hover span,
-.button-hover-effect:focus span {
-    background-image: linear-gradient(to right, black 50%, white 50%);
-    -webkit-background-clip: text;
+.button-hover-effect span {
+    position: relative;
+    z-index: 1;
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
+    background-image: linear-gradient(to right, white 50%, black 50%);
     background-size: 200% 100%;
     background-position: 100% 0;
     transition: background-position var(--transition-duration) ease;

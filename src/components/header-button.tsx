@@ -11,7 +11,7 @@ export type HeaderButtonProps = {
 const HeaderButton = ({ href, label, className = "", onClick }: HeaderButtonProps): React.JSX.Element => (
     <Link 
         href={href} 
-        className={`text-white px-3 py-2 border-2 border-white text-sm font-medium button-hover-effect ${className}`}
+        className={`px-3 py-2 border-2 border-white text-sm font-medium button-hover-effect ${className}`}
         onClick={onClick}
     >
         <span>{label}</span>
