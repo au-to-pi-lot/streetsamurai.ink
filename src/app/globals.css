@@ -26,6 +26,24 @@
     }
 }
 
+@keyframes scroll-horizontal-reverse {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(20px * 2 * sin(45deg)));
+    }
+}
+
+@keyframes scroll-vertical-reverse {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(calc(20px * 2 * sin(45deg)));
+    }
+}
+
 .hazard-tape {
     position: relative;
     overflow: hidden;
@@ -54,6 +72,14 @@
 
     .hazard-tape-vertical .hazard-tape-inner {
         animation: scroll-vertical 0.5s linear infinite;
+    }
+
+    .hazard-tape-horizontal.hazard-tape-reverse .hazard-tape-inner {
+        animation: scroll-horizontal-reverse 0.5s linear infinite;
+    }
+
+    .hazard-tape-vertical.hazard-tape-reverse .hazard-tape-inner {
+        animation: scroll-vertical-reverse 0.5s linear infinite;
     }
 }
 
