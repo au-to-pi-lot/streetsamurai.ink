@@ -71,16 +71,6 @@
     }
 }
 
-.hero {
-    line-height: 1;
-    display: inline-block;
-    z-index: 2;
-    letter-spacing: 0;
-
-    /* Bright things in dark environments usually cast that light, giving off a glow */
-    filter: drop-shadow(0 1px 5px);
-}
-
 .layers {
     position: relative;
 }
