@@ -4,6 +4,7 @@ import React from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import HazardTape from "@/components/hazard-tape";
+import BackToTopButton from "@/components/back-to-top-button";
 
 export type ContentProps = {} & React.PropsWithChildren
 
@@ -26,6 +27,7 @@ const Content = ({children}: ContentProps): React.JSX.Element => (
             </div>
         </main>
         <Footer />
+        <BackToTopButton />
     </div>
 )
 
