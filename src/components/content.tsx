@@ -18,7 +18,7 @@ const Content = ({children}: ContentProps): React.JSX.Element => (
                     <div className="absolute inset-0 border-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.5)] z-10">
                         <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(255,255,255,0.5)]"></div>
                     </div>
-                    <div className="relative p-6 filter drop-shadow-[0_1px_3px]">
+                    <div className="relative p-8 filter drop-shadow-[0_1px_3px] prose prose-invert max-w-none">
                         {children}
                     </div>
                 </div>
