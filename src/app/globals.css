@@ -360,18 +360,20 @@
     }
 }
 
-.glitch span {
-    animation: paths 5s step-end infinite;
-}
+@media (prefers-reduced-motion: no-preference) {
+    .glitch span {
+        animation: paths 5s step-end infinite;
+    }
 
-.glitch::before {
-    animation: paths 5s step-end infinite, opacity 5s step-end infinite,
-    font 7s step-end infinite, movement 11s step-end infinite;
-}
+    .glitch::before {
+        animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+        font 7s step-end infinite, movement 11s step-end infinite;
+    }
 
-.glitch::after {
-    animation: paths 5.5s step-end infinite, opacity 5.5s step-end infinite,
-    font 9s step-end infinite, movement 13s step-end infinite;
+    .glitch::after {
+        animation: paths 5.5s step-end infinite, opacity 5.5s step-end infinite,
+        font 9s step-end infinite, movement 13s step-end infinite;
+    }
 }
 
 body {
