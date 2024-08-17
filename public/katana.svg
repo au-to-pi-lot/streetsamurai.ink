@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" stroke="black" stroke-width="2" fill="none">
+  <!-- Blade -->
+  <path d="M50 100 Q400 90, 750 70 L745 75 Q400 95, 50 105 Z" />
+  
+  <!-- Handle -->
+  <path d="M50 100 L10 102 Q5 101, 5 100 Q5 99, 10 98 L50 100" />
+  
+  <!-- Guard -->
+  <path d="M55 90 Q52.5 100, 55 110" />
+  
+  <!-- Blade tip -->
+  <path d="M745 75 L750 70 L755 73" />
+</svg>
