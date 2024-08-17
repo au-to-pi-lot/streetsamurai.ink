@@ -447,3 +447,38 @@ body {
 .hamburger-menu .menu-items a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* Hamburger icon styles */
+.hamburger-icon,
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    display: block;
+    background: white;
+    height: 2px;
+    width: 24px;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+}
+
+.hamburger-icon::before {
+    top: -8px;
+}
+
+.hamburger-icon::after {
+    bottom: -8px;
+}
+
+.hamburger-icon.open {
+    background: transparent;
+}
+
+.hamburger-icon.open::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger-icon.open::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
