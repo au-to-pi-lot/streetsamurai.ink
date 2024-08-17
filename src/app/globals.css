@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+    --transition-duration: 0.3s;
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
@@ -414,6 +415,41 @@ body {
 @layer utilities {
     .text-balance {
         text-wrap: balance;
+    }
+}
+
+.button-hover-effect {
+    position: relative;
+    overflow: hidden;
+    transition: color var(--transition-duration) ease;
+}
+
+.button-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: left var(--transition-duration) ease;
+    z-index: -1;
+}
+
+.button-hover-effect:hover::before,
+.button-hover-effect:focus::before {
+    left: 0;
+}
+
+.button-hover-effect:hover,
+.button-hover-effect:focus {
+    color: black;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .button-hover-effect,
+    .button-hover-effect::before {
+        transition: none;
     }
 }
 
