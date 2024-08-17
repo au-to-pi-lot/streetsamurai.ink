@@ -81,11 +81,6 @@
     filter: drop-shadow(0 1px 5px);
 }
 
-.demo {
-    height: 100px;
-    background: #fff;
-}
-
 .layers {
     position: relative;
 }
