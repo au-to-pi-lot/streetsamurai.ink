@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" stroke="black" stroke-width="1.5" fill="none">
   <!-- Blade -->
-  <path d="M50 100 Q400 90, 750 70 L745 75 Q400 95, 50 105 Z" />
-  <path d="M60 102 Q400 92, 740 73" stroke-width="0.5" />
-  <path d="M70 103 Q400 93, 730 74" stroke-width="0.5" />
+  <path d="M50 100 Q400 85, 750 65 L745 80 Q400 100, 50 115 Z" />
+  <path d="M60 102 Q400 87, 740 68" stroke-width="0.5" />
+  <path d="M70 104 Q400 89, 730 71" stroke-width="0.5" />
   
   <!-- Handle (Tsuka) -->
   <path d="M50 100 L10 102 Q5 101, 5 100 Q5 99, 10 98 L50 100" />
@@ -10,17 +10,17 @@
   <path d="M40 98.5 L20 100.5 M40 101.5 L20 99.5" stroke-width="0.5" />
   
   <!-- Guard (Tsuba) -->
-  <path d="M55 90 Q52.5 100, 55 110" />
-  <ellipse cx="52.5" cy="100" rx="3" ry="10" />
+  <path d="M55 85 Q52.5 100, 55 115" />
+  <ellipse cx="52.5" cy="100" rx="3" ry="15" />
   
   <!-- Blade tip -->
-  <path d="M745 75 L750 70 L755 73" />
+  <path d="M745 80 L750 65 L755 68" />
   
   <!-- Decorative elements -->
-  <path d="M60 97 L65 97 M60 103 L65 103" stroke-width="0.5" />
-  <path d="M70 96 L75 96 M70 104 L75 104" stroke-width="0.5" />
-  <path d="M80 95 L85 95 M80 105 L85 105" stroke-width="0.5" />
+  <path d="M60 95 L65 95 M60 105 L65 105" stroke-width="0.5" />
+  <path d="M70 93 L75 93 M70 107 L75 107" stroke-width="0.5" />
+  <path d="M80 91 L85 91 M80 109 L85 109" stroke-width="0.5" />
   
   <!-- Hamon (Temper line) -->
-  <path d="M90 97 Q120 96, 150 98 Q180 100, 210 97 Q240 94, 270 99 Q300 104, 330 98 Q360 92, 390 97 Q420 102, 450 98 Q480 94, 510 99 Q540 104, 570 98 Q600 92, 630 97 Q660 102, 690 98 Q720 94, 750 97" stroke-width="0.5" stroke-dasharray="2,2" />
+  <path d="M90 98 Q120 97, 150 99 Q180 101, 210 98 Q240 95, 270 100 Q300 105, 330 99 Q360 93, 390 98 Q420 103, 450 99 Q480 95, 510 100 Q540 105, 570 99 Q600 93, 630 98 Q660 103, 690 99 Q720 95, 745 98" stroke-width="0.5" stroke-dasharray="2,2" />
 </svg>
