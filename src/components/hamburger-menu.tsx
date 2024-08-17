@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './HamburgerMenu.module.css';
 
 export type HamburgerMenuProps = {
   children: React.ReactNode;
@@ -18,11 +19,18 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ children }) => {
         className="text-white focus:outline-none relative w-6 h-6"
         aria-label="Toggle menu"
       >
-        <span className={`hamburger-icon ${isOpen ? 'open' : ''}`}></span>
+        <span className={`${styles.hamburgerIcon} ${isOpen ? styles.open : ''}`}></span>
       </button>
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-black border border-gray-700 rounded-md shadow-lg py-1">
-          {children}
+        <div className={styles.menuItems}>
+          {React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+              return React.cloneElement(child, {
+                className: `${child.props.className || ''} ${styles.menuItem}`.trim()
+              });
+            }
+            return child;
+          })}
         </div>
       )}
     </div>
