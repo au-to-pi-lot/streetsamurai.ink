@@ -12,8 +12,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        mono: ['var(--font-kode-mono)'],
-        barcode: ['var(--font-libre-barcode-128-text)']
+        mono: ['var(--font-kode-mono)']
       },
       fontSize: {
         'header': ['2rem', {
