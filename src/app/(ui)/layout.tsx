@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 const RootLayout = ({children}: Props) => {
     return (
         <html lang="en" className="">
-        <body className="w-screen h-screen ">
+        <body className="w-screen h-screen">
         <Content>
             {children}
         </Content>
