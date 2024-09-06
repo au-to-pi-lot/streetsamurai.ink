@@ -1,26 +1,171 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" stroke="black" stroke-width="1.5" fill="none">
-  <!-- Blade -->
-  <path d="M50 100 Q400 85, 750 65 L745 80 Q400 100, 50 115 Z" />
-  <path d="M60 102 Q400 87, 740 68" stroke-width="0.5" />
-  <path d="M70 104 Q400 89, 730 71" stroke-width="0.5" />
-  
-  <!-- Handle (Tsuka) -->
-  <path d="M50 100 L10 102 Q5 101, 5 100 Q5 99, 10 98 L50 100" />
-  <path d="M45 99 L15 101 M45 101 L15 99" stroke-width="0.5" />
-  <path d="M40 98.5 L20 100.5 M40 101.5 L20 99.5" stroke-width="0.5" />
-  
-  <!-- Guard (Tsuba) -->
-  <path d="M55 85 Q52.5 100, 55 115" />
-  <ellipse cx="52.5" cy="100" rx="3" ry="15" />
-  
-  <!-- Blade tip -->
-  <path d="M745 80 L750 65 L755 68" />
-  
-  <!-- Decorative elements -->
-  <path d="M60 95 L65 95 M60 105 L65 105" stroke-width="0.5" />
-  <path d="M70 93 L75 93 M70 107 L75 107" stroke-width="0.5" />
-  <path d="M80 91 L85 91 M80 109 L85 109" stroke-width="0.5" />
-  
-  <!-- Hamon (Temper line) -->
-  <path d="M90 98 Q120 97, 150 99 Q180 101, 210 98 Q240 95, 270 100 Q300 105, 330 99 Q360 93, 390 98 Q420 103, 450 99 Q480 95, 510 100 Q540 105, 570 99 Q600 93, 630 98 Q660 103, 690 99 Q720 95, 745 98" stroke-width="0.5" stroke-dasharray="2,2" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created using Krita: https://krita.org -->
+
+<svg
+   width="942pt"
+   height="120pt"
+   viewBox="0 0 942 120"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <path
+     id="shape0"
+     fill="#ffffff"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 49.465502,61.95229 -2.625,1.5 -5.875,1 -4.5,-0.375 -5.25,-2.75 -4,-3.875 -3.25,-6.375 0.375,-7.5 1.125,-6.75 1.625,-4.875 4.125,-4.5 3.75,-1.625 5.125,0.375 6.375,1.375 16,2.375 16.25,1.75 12.625,1 18.124998,1.875 32.75,2.875 27.875,2.25 57.906,3.5938 0.094,-17.3438 1.875,-3.1875 1.5,-0.9375 6.562,-0.1875 2.813,1.125 1.312,2.0625 -0.75,18.5625 18.563,0.9375 0.047,2.2266 73.922,2.2734 77.781,2.375 69.75,1.125 109.875,-0.125 52.5,-0.75 26.5,-0.5 34.75,-1.25 46,-1.75 51.25,-2.25 57.5,-4.25 21.969,-2.2812 38.344,-4.4063 7.593,-1.4062 -5.39,5.625 -10.969,8.9062 -11.094,5.7344 -13.703,4.0156 -23.438,3.75 -47.437,5.0625 -60.75,5.4375 -51.875,2.8125 -120.75,5 -150.75,1.5 -98.313,-1.4375 -39,-1.5 -35.625,-1.3125 -1.25,2.3125 -18.5,-0.75 -0.562,18.062498 -1.875,2.1875 -8.563,0.1875 -2.687,-1.875 0.187,-21.374998 -39.124,-1 -29.25,-2.25 -46.8755,-3.9375 -40.687498,-3.9375 z" />
+  <path
+     id="shape1"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 49.403,46.296039 4.875,9 6.2812,-7.875 -4.87495,-8.8125 z" />
+  <path
+     id="shape2"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 66.777999,48.264789 5.4375,8.625 6.1875,-7.96875 -5.53125,-8.71875 z" />
+  <path
+     id="shape3"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 83.996748,50.421039 5.15625,8.3437 6.28125,-7.9687 -5.25,-8.8125 z" />
+  <path
+     id="shape4"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 101.99675,51.827289 4.5,8.8125 6.1875,-7.96875 -4.5,-8.71875 z" />
+  <path
+     id="shape5"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 119.62175,53.327289 4.875,8.53125 5.9062,-7.5 -5.06245,-8.8125 z" />
+  <path
+     id="shape6"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 137.02802,54.921051 5.0625,8.8125 6.5625,-7.96875 -5.625,-8.71875 z" />
+  <path
+     id="shape7"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 154.68427,56.608551 5.90625,8.53125 6.09375,-8.25 -5.71875,-8.4375 v 0 0.09375 z" />
+  <path
+     id="shape8"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 173.15302,57.921051 5.25,7.875 5.625,-7.59375 -5.15625,-8.34375 z" />
+  <path
+     id="shape9"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 190.87177,58.483551 5.25,8.43745 5.4375,-7.4062 -5.0625,-8.625 z" />
+  <path
+     id="shape10"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 207.46552,59.702301 5.53125,8.15625 5.34375,-7.78125 v 0 0 l -5.0625,-8.15625 z" />
+  <path
+     id="shape11"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 230.71552,26.514802 7.6875,0.1875 -1.6875,-2.71875 h -5.0625 z" />
+  <path
+     id="shape12"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 241.87177,45.827301 h 14.90625 l -0.1875,0.09375 v 2.0625 0 0 l -15,-0.1875 z" />
+  <path
+     id="shape13"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke-opacity="0"
+     stroke="#000000"
+     stroke-width="0"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 227.24702,45.171002 v 2.1563 l -20.719,-0.4688 -23.438,-1.7812 -28.312,-2.0625 -25.406,-2.0625 -16.9065,-1.8125 -32.250002,-3.25 -22.5,-1.9375 -6.5625,-1 -6.0625,-1.0625 -7.4375,-1.125 -3.125,0.625 -2.375,1.9375 -1.6875,2.3125 -1.125,1.25 -1.0625,-0.875 0.3125,-2 1.5,-2.1875 3,-2.5 4.25,-1.625 5.75,1.25 5.25,1.125 7,0.8125 8.25,1.125 9.6875,1 7.9375,0.9375 10.0625,1 9.937502,1 12.125,1 10.1875,1.0625 10.937,0.875 12.875,1 11.813,1 15.187,1.0625 12,0.9375 15.938,1 18.187,1.0625 z" />
+  <path
+     id="shape14"
+     fill="#000000"
+     fill-rule="evenodd"
+     stroke="#ffffff"
+     stroke-width="1.29"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 260.05925,46.811652 -0.84375,12.7031 -0.84375,17.25 9.15625,-5.8125 -0.3125,-1.5625 -2.875,0.375 -3.5,2.25 0.9375,-22.3125 6,2.5 8.37495,4.5 2,2.3125 0.4532,0.7344 -2.7031,4.5 26.3125,0.7656 35.5,0.9375 50.8752,1 115.734,0.7188 55.453,-0.7969 41.5,-0.9219 62.563,-1.8125 38.062,-2.0625 46.438,-2.0625 32.687,-2.125 29.25,-1.75 10.407,-0.9375 27.656,-2.25 31.781,-3 18,-1.9687 12.281,-2.0625 4.032,-0.375 h 0.093 l 2.625,-2.15625 3.469,-2.90625 5.438,-5.34375 1.218,-1.59375 -9.843,1.59375 -13.782,1.875 -23.718,2.625 -15,1.5 -25.5,1.96875 -25.5,1.875 -20.25,1.2187 -23.719,0.875 -22,1.125 -27.25,1.125 -26.875,1 -32.125,0.75 -28.75,0.75 -105.532,0.5625 -62.718,-0.2812 -56.625,-0.9063 -37.125,-1.25 -33.2503,-0.875 -31.75,-1 -32.75,-1 z" />
+  <path
+     id="shape15"
+     fill="none"
+     stroke="#ffffff"
+     stroke-width="1.29"
+     stroke-linecap="square"
+     stroke-linejoin="bevel"
+     d="m 918.37225,41.749176 -6,1.17187 -7.594,1.125 -6.656,0.84375 -9.516,1.21875 -7.453,0.9375 -11.156,0.98438 -11.344,0.89061 -11.907,1.03125 -25.781,1.96879 -28.875,2.0625 -33.187,1.9687 -44.688,2.25 -44.125,1.875 -56.75,2 -62.125,1.25 -93,0.75 -81.2498,-1.125 -98.1562,-2.9687" />
 </svg>
