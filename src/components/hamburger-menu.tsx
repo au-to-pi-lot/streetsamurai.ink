@@ -26,14 +26,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ children }) => {
       </button>
       {isOpen && (
         <div className="">
-          {React.Children.map(children, (child) => {
-            if (React.isValidElement(child)) {
-              return React.cloneElement(child, {
-                className: `${child.props.className || ''} `.trim()
-              });
-            }
-            return child;
-          })}
+          {children}
         </div>
       )}
     </div>
